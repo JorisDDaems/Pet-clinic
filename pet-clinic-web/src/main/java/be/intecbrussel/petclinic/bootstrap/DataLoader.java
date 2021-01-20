@@ -1,8 +1,10 @@
 package be.intecbrussel.petclinic.bootstrap;
 
 import be.intecbrussel.petclinic.model.Owner;
+import be.intecbrussel.petclinic.model.PetType;
 import be.intecbrussel.petclinic.model.Vet;
 import be.intecbrussel.petclinic.services.OwnerService;
+import be.intecbrussel.petclinic.services.PetTypeService;
 import be.intecbrussel.petclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -12,14 +14,27 @@ public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
     public void run(String... args) throws Exception {
+
+        PetType dog = new PetType();
+        dog.setName("Dog");
+        PetType savedPetType = petTypeService.save(dog);
+
+        PetType cat = new PetType();
+        dog.setName("cat");
+        PetType savedNewPetType = petTypeService.save(cat);
+
+
+
         Owner owner1 = new Owner();
         owner1.setFirstName("jeffrey");
         owner1.setLastName("baetens");
