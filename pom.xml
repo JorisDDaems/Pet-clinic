@@ -20,13 +20,17 @@
 
     <properties>
         <java.version>11</java.version>
+
     </properties>
+
+
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -51,6 +55,7 @@
                     <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 
