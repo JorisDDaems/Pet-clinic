@@ -86,7 +86,7 @@ public class DataLoader implements CommandLineRunner {
         Pet alexaPet = new Pet();
         alexaPet.setPetType(savedNewPetType);
         alexaPet.setOwner(owner2);
-        alexaPet.setBirthDate(LocalDate.EPOCH);
+        alexaPet.setBirthDate(LocalDate.now());
         alexaPet.setName("Figaro");
         owner2.getPets().add(alexaPet);
 
