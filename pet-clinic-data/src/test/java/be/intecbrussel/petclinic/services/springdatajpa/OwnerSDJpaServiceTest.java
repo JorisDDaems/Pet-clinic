@@ -18,8 +18,7 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class OwnerSDJpaServiceTest {
@@ -78,6 +77,15 @@ class OwnerSDJpaServiceTest {
     }
 
     @Test
+    void findByIdNotFound() {
+        when(ownerRepository.findById(anyLong())).thenReturn(Optional.empty());
+
+        Owner owner = service.findById(1L);
+
+        assertNull(owner);
+    }
+
+    @Test
     void save() {
         Owner ownerToSave = Owner.builder().id(1L).build();
 
@@ -86,13 +94,15 @@ class OwnerSDJpaServiceTest {
         Owner savedOwner = service.save(ownerToSave);
 
         assertNotNull(savedOwner);
+
+        verify(ownerRepository).save(any());
     }
 
     @Test
     void delete() {
         service.delete(returnOwner);
 
-        verify(ownerRepository).delete(any());
+        verify(ownerRepository, times(1)).delete(any());
     }
 
     @Test
