@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
+@RequestMapping("/owners/{ownerId}")
 @Controller
-@RequestMapping("/pets/{ownerId}")
 public class PetController {
 
     private static final String VIEWS_PETS_CREATE_OR_UPDATE_FORM = "pets/createOrUpdatePetForm";
@@ -54,6 +54,7 @@ public class PetController {
     public String initCreationForm(Owner owner, Model model) {
         Pet pet = new Pet();
         owner.getPets().add(pet);
+        pet.setOwner(owner);
         model.addAttribute("pet", pet);
         return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
     }

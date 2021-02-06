@@ -2,12 +2,10 @@ package be.intecbrussel.petclinic.controllers;
 
 import be.intecbrussel.petclinic.model.Owner;
 import be.intecbrussel.petclinic.services.OwnerService;
-import com.sun.xml.txw2.annotation.XmlElement;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentMatcher;
 import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
