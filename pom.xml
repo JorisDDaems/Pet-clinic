@@ -20,6 +20,7 @@
 
     <properties>
         <java.version>11</java.version>
+        <jaxb.version>2.3.0</jaxb.version>
 
     </properties>
 
